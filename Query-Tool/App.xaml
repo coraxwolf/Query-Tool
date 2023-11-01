@@ -1,0 +1,52 @@
+﻿<Application x:Class="Query_Tool.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Query_Tool"
+             >
+    <Application.Resources>
+
+        <!-- Fonts -->
+        <FontFamily x:Key="Heading">../Resources/Avenir-Fonts/#Avenir-Heavy</FontFamily>
+        <FontFamily x:Key="Normal">../Resources/Avenir-Fonts/#Avenir-Medium</FontFamily>
+        <FontFamily x:Key="Italic">../Resources/Avenir-Fonts/#Avenir-LightOblique</FontFamily>
+        
+        <!-- Colors -->
+        <Color x:Key="Sunshine">#FFB819</Color>
+        <SolidColorBrush x:Key="SunshineBrush" Color="{DynamicResource Sunshine}"/>
+        <Color x:Key="Monarch">#EF7622</Color>
+        <SolidColorBrush x:Key="MonarchBrush" Color="{DynamicResource Monarch}"/>
+        <Color x:Key="Azalea">#E56385</Color>
+        <SolidColorBrush x:Key="AzaleaBrush" Color="{DynamicResource Azalea}"/>
+        <Color x:Key="Rocket">#D9272E</Color>
+        <SolidColorBrush x:Key="RocketBrush" Color="{DynamicResource Rocket}"/>
+        <Color x:Key="Mauveine">#4A0D66</Color>
+        <SolidColorBrush x:Key="MauveineBrush" Color="{DynamicResource Mauveine}"/>
+        <Color x:Key="Peridot">#6CC04A</Color>
+        <SolidColorBrush x:Key="PeridotBrush" Color="{DynamicResource Peridot}"/>
+        <Color x:Key="MemorialGreen">#009D4E</Color>
+        <SolidColorBrush x:Key="MemorialGreenBrush" Color="{DynamicResource MemorialGreen}"/>
+        <Color x:Key="HoustonSky">#0093C9</Color>
+        <SolidColorBrush x:Key="HoustonSkyBrush" Color="{DynamicResource HoustonSky}"/>
+        <Color x:Key="BlueBonnet">#0075C9</Color>
+        <SolidColorBrush x:Key="BlueBonnetBrush" Color="{DynamicResource BlueBonnet}"/>
+        <Color x:Key="Iron">#55565A</Color>
+        <SolidColorBrush x:Key="IronBrush" Color="{DynamicResource Iron}"/>
+        <Color x:Key="BattleShip">#8A8A8C</Color>
+        <SolidColorBrush x:Key="BattleShipBrush" Color="{DynamicResource BattleShip}"/>
+
+        <!-- Gradient Backgrounds -->
+        <LinearGradientBrush x:Key="Sunset" StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="{DynamicResource Sunshine}" Offset="0.0"/>
+            <GradientStop Color="{DynamicResource Monarch}" Offset="0.5"/>
+            <GradientStop Color="{DynamicResource Azalea}" Offset="0.9"/>
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="GoldenHour" StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="{DynamicResource Sunshine}" Offset="0.0"/>
+            <GradientStop Color="{DynamicResource Azalea}" Offset="0.5"/>
+            <GradientStop Color="{DynamicResource BlueBonnet}" Offset="0.9"/>
+        </LinearGradientBrush>
+
+        <!-- Styles -->
+
+    </Application.Resources>
+</Application>
