@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace Query_Tool.Stores
 {
-    public class CourseDBContextFactory
+    public class CoursesDBContextFactory
     {
         private readonly string ConnectionString;
 
-        public CourseDBContextFactory(string connectionString)
+        public CoursesDBContextFactory(string connectionString)
         {
             ConnectionString = connectionString;
         }

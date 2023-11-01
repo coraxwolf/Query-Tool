@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Query_Tool.Stores
 {
-    public class QueryStore
+    public class QueryStore : INotifyCollectionChanged
     {
         private Dictionary<string, Course> CourseRecords;
         private List<ChangeRecord> ChangeRecords;
@@ -33,7 +34,7 @@ namespace Query_Tool.Stores
         public void AddCourse(Course course)
         {
             CourseRecords.Add(course.SisId, course);
-            OnPropertyChanged(this, new PropertyChangedEventArgs(nameof(Courses)));
+            OnCollectonChanged(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Add, course));
         }
 
         public bool ContainsKey(string id)
@@ -59,6 +60,12 @@ namespace Query_Tool.Stores
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
+        public event NotifyCollectionChangedEventHandler? CollectionChanged;
+
+        protected void OnCollectonChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            CollectionChanged?.Invoke(this, e);
+        }
 
         protected void OnPropertyChanged(object sender, PropertyChangedEventArgs e)
         {

@@ -15,8 +15,10 @@ namespace Query_Tool.DTOs
         public string FacultyNo { get; set; }
         public DateTime created {  get;}
 
-        public FacultyAssignmentDTO()
+        public FacultyAssignmentDTO(string facultyNo, string courseId)
         {
+            SisId = courseId;
+            FacultyNo = facultyNo;
             created = DateTime.Now;
         }
     }

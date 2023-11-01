@@ -1,6 +1,7 @@
 ﻿using Query_Tool.DTOs;
 using Query_Tool.Models;
 using Query_Tool.Services;
+using Query_Tool.Services.Interfaces;
 using Query_Tool.Stores;
 using System;
 using System.Collections.Generic;
@@ -12,9 +13,9 @@ namespace Query_Tool.Services.CourseCreators
 {
     public class DBCourseCreator : ICourseCreator
     {
-        private readonly CourseDBContextFactory DBContextFactory;
+        private readonly CoursesDBContextFactory DBContextFactory;
 
-        public DBCourseCreator(CourseDBContextFactory dBContextFactory)
+        public DBCourseCreator(CoursesDBContextFactory dBContextFactory)
         {
             DBContextFactory = dBContextFactory;
         }

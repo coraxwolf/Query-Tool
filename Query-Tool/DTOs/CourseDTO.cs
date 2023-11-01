@@ -18,7 +18,6 @@ namespace Query_Tool.DTOs
         public string Semester { get; set; }
         public string Subject { get; set; }
         public string Catalog { get; set; }
-        public string CourseName { get; set; }
         public string Campus { get; set; }
         public string Location { get; set; }
         public string Title { get; set; }
@@ -77,7 +76,6 @@ namespace Query_Tool.DTOs
             CanvasName = canvasName ?? null;
             CanvasCode = canvasCode ?? null;
 
-            CourseName = $"{subject} {catalog}";
             if (status == "A")
             {
                 Status = "Active";
@@ -87,6 +85,9 @@ namespace Query_Tool.DTOs
             } else if (status == "S")
             {
                 Status = "Stopped";
+            } else if (status == "Active" ||  status == "Canceled" || status == "Stopped")
+            {
+                Status = status;
             } else
             {
                 Status = "Invalid";

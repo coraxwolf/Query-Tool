@@ -29,13 +29,11 @@ namespace Query_Tool
         }
         protected override void OnStartup(StartupEventArgs e)
         {
-            /**
             DbContextOptions options = new DbContextOptionsBuilder().UseSqlite(CONNECTION_STRING).Options;
-            using (CoursesDBContext dbContext = new(options))
+            using (CoursesDBContext dbContext = new CoursesDBContextFactory(CONNECTION_STRING).CreateDbContext())
             {
                 dbContext.Database.Migrate();
             }
-            */
             
             MainWindow = new MainWindow()
             {

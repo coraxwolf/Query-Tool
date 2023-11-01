@@ -1,4 +1,5 @@
 ﻿using EO_Tool.Models;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Query_Tool.Commands;
 using Query_Tool.Models;
 using Query_Tool.Stores;
@@ -52,7 +53,15 @@ namespace Query_Tool.ViewModels
             QueryData = new QueryStore();
             LoadQueryCommand = new LoadQuery(QueryData);
             ClearQueryCommand =new ClearQuery(QueryData);
-            QueryData.PropertyChanged += QueryData_PropertyChanged;
+            QueryData.CollectionChanged += OnQueryCollectionChanged;
+        }
+
+        private void OnQueryCollectionChanged(object? sender, NotifyCollectionChangedEventArgs e)
+        {
+            if (e.Action == NotifyCollectionChangedAction.Add || e.Action == NotifyCollectionChangedAction.Reset)
+            {
+                OnPropertyChanged(nameof(QueryData));
+            }
         }
 
         private void QueryData_PropertyChanged(object? sender, PropertyChangedEventArgs e)

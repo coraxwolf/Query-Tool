@@ -40,7 +40,7 @@
                     />
 
     </Grid>
-        <TabPanel Grid.Row="1">
+        <TabPanel Grid.Row="1" Margin="10 5 10 5">
             <TabControl>
                 <TabItem Header="Query Data" Name="Courses">
                     <DataGrid

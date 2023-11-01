@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Query_Tool.Services.CourseProviders
+namespace Query_Tool.Services.Interfaces
 {
     public interface ICourseProvider
     {
         Task<IEnumerable<Course>> GetAllCourses();
+        Task<IEnumerable<Course>> GetCoursesForTerm(string term);
     }
 }

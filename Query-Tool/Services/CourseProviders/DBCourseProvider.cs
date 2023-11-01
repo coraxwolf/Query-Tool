@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore.Internal;
 using Query_Tool.DTOs;
 using Query_Tool.Models;
 using Query_Tool.Services;
+using Query_Tool.Services.Interfaces;
+using Query_Tool.Stores;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,11 +14,11 @@ using System.Threading.Tasks;
 
 namespace Query_Tool.Services.CourseProviders
 {
-    public class DBCourseProvider
+    public class DBCourseProvider : ICourseProvider
     {
-        private CourseListDBContextFactory DBContextFacorty;
+        private readonly CoursesDBContextFactory DBContextFacorty;
 
-        public DBCourseProvider(CourseListDBContextFactory DBContextFactory)
+        public DBCourseProvider(CoursesDBContextFactory DBContextFactory)
         {
             DBContextFacorty = DBContextFactory;
         }
@@ -41,6 +43,24 @@ namespace Query_Tool.Services.CourseProviders
                 dbRecord.StartDate,
                 dbRecord.EndDate
             );
+        }
+
+        public async Task<IEnumerable<Course>> GetAllCourses()
+        {
+            using (CoursesDBContext dbContext = DBContextFacorty.CreateDbContext())
+            {
+                IEnumerable<CourseDTO> courseDTOs = await dbContext.Courses.ToListAsync();
+                return courseDTOs.Select(c => ToCourseRecord(c));
+            }
+        }
+
+        public async Task<IEnumerable<Course>> GetCoursesForTerm(string term)
+        {
+            using (CoursesDBContext dBContext = DBContextFacorty.CreateDbContext())
+            {
+                IEnumerable<CourseDTO> courseDTOs = await dBContext.Courses.Where((c) => c.Term == term).ToListAsync();
+                return courseDTOs.Select(c => ToCourseRecord(c));
+            }
         }
     }
 }

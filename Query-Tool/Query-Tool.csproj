@@ -10,7 +10,9 @@
 
   <ItemGroup>
     <Folder Include="Resources\" />
-    <Folder Include="Services\FacultyProviders\" />
+    <Folder Include="Services\FacultyCreators\" />
+    <Folder Include="Services\AssignmentCreators\" />
+    <Folder Include="Services\AssignmentProviders\" />
   </ItemGroup>
 
   <ItemGroup>
